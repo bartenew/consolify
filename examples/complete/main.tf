@@ -23,6 +23,13 @@ data "terraform_remote_state" "state" {
   }
 }
 
+
+
+output "links" {
+  value = module.consolify.linkable_resources
+}
+
+
 resource "aws_s3_bucket" "test" {
   bucket = "name-z1222zzzz666"
 }
@@ -68,8 +75,3 @@ resource "aws_iam_role" "eks_role" {
   })
 }
 
-
-
-output "debug" {
-  value = module.consolify.linkable_resources
-}

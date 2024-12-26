@@ -2,6 +2,8 @@
 
 This project parses **Terraform state JSON** to extract and print AWS Console links for resources managed by Terraform. It currently supports the **AWS provider** and focuses on generating convenient links for easy navigation to AWS resources in the console.
 
+![img.png](img/img.png)
+
 ## Features
 
 - Parses **Terraform state JSON** files to identify AWS resources.
