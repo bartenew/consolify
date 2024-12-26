@@ -17,8 +17,24 @@ This project parses **Terraform state JSON** to extract and print AWS Console li
 
 ## Usage
 
-[See examples](./examples/complete)
+```terraform
 
+
+# state must not be null before you apply
+data "terraform_remote_state" "state" {
+  backend = "local" # s3 or any kind of backend
+  config = {
+    path = "terraform.tfstate"
+  }
+}
+
+module "consolify" {
+  source  = "bartenew/consolify/aws"
+  version = "1.0.3"
+  content = file(data.terraform_remote_state.state.config.path)
+}
+
+```
 ## Limitations
 
 - **Provider Support**: Currently, only the AWS provider is supported. Other cloud providers may be added in the future.
